@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+@font-face {
+  font-family: "punk";
+  src: url("../font/Punkkid/punk_kid.ttf") format("truetype");
+  /* OJO!!!!  las rutas son relativas al css */
+}
+.container {
+  padding: 10px;
+  font-family: helvetica;
+}
+
+section {
+  border: 2px solid black;
+  margin: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+section article {
+  width: 50%;
+}
+
+header , footer {
+  margin: 0px;
+  display: flex;
+  flex-direction: row;
+  background-color : black;
+  color : white;
+}
+
+#logotipo {
+  font-family: "Press Start 2P", cursive;
+  padding: 10px;
+}
+
+#profesor ul, #alumnos ul {
+  list-style: none;
+}
+
+#alumnos article {
+  padding: 5px;
+  border: 2px solid blue;
+}
+
+#barra {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav ul li {
+  display: inline;
+}
+
+.imagengithub {
+  border-radius: 50%;
+  width: 80px;
+}
+
+#profesor {
+  font-family: "punk";
+}
+
+.kidpunk {
+  font-family: "punk";
+}
+
+.theme-btn {
+  width: 3em;
+  height: 3em;
+  padding: 0.5em;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.theme-btn img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* sintasis css */
+:root,
+:root.light {
+  --bg-color: #fff;
+  --text-color: #123;
+}
+
+:root.dark {
+  --bg-color: #121212;
+  --text-color: #45ADFE;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+button {
+  color: var(--text-color);
+}
+
+.dark svg {
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
+/*# sourceMappingURL=08-fetch.css.map */
