@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airtable</title>
+</head>
+<body>
+  <h1>Airtable</h1>
+  <p>Airtable proporciona una API con un control de permisos muy granulados.</p>
+  <p>Las claves usadas en esta API tiene solo permisos de lectura, por lo tanto se pueden usar en JS cliente</p>
+  <h3>Mira la consola de JS para ver el resultado de https://api.github.com</h3>
+</body>
+</html>
+<script>
+const myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer patdbap8raFBNlNhA.7aa8f22f86ce7658d1cc316867bef146214327d637ebcb7c7f3bccd6b697c586");
+myHeaders.append("Cookie", "brw=brwN8k2o0hdTJp6vb; brwConsent=opt-in; AWSALB=Nd1QWSo0AXZdjQCXUrWj1pKXpYoya7j4BkjwPKuOg4ErG/m0gviLVc6rFT6n1gsvIqbZeSN+Wg9V8Iwvy9LIGDxt7+xIyl9HFRnWO/ImbxVzNHfwAcdGam7y0GRE; AWSALBCORS=Nd1QWSo0AXZdjQCXUrWj1pKXpYoya7j4BkjwPKuOg4ErG/m0gviLVc6rFT6n1gsvIqbZeSN+Wg9V8Iwvy9LIGDxt7+xIyl9HFRnWO/ImbxVzNHfwAcdGam7y0GRE; AWSALBTG=BLp+TrYr6fV3YZjgPUz1+CUb0r15U7xDNBkz1M36UuB5vSh1TLmLPNoE6zSdLvEZVydK0ZfY1QBqxiM+4E32A49ZWiAyZlnrMhTv36Tp2wpFNjLkXnIil/K14NphdDo/bmjWuvvgjouhucda2wdCD9vwHousNgD6XQgrytbAYTcAc2I5YQ4=; AWSALBTGCORS=BLp+TrYr6fV3YZjgPUz1+CUb0r15U7xDNBkz1M36UuB5vSh1TLmLPNoE6zSdLvEZVydK0ZfY1QBqxiM+4E32A49ZWiAyZlnrMhTv36Tp2wpFNjLkXnIil/K14NphdDo/bmjWuvvgjouhucda2wdCD9vwHousNgD6XQgrytbAYTcAc2I5YQ4=");
+
+const requestOptions = {
+  method: "GET",
+  headers: myHeaders,
+  redirect: "follow"
+};
+
+fetch("https://api.airtable.com/v0/appLLNRwDQ9NC4BOj/Productos", requestOptions)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.error(error));
+
+  </script>
+
+

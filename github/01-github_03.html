@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub</title>
+</head>
+<body>
+  <h1>Github - buscador</h1>
+  <p>Ejemplo de busqueda</p>
+  <p>
+  <h3>Resultado de la busqueda en la consola convertido  a  JSON</h3>
+  <div id="resultado"></div>
+</body>
+</html>
+<script>
+const requestOptions = {
+  method: "GET",
+  redirect: "follow"
+};
+const persona= 'alberto';
+fetch(`https://api.github.com/search/users?q=${persona}`, requestOptions)
+  .then((response) => response.text())
+  .then((result) => {
+    console.log(result);
+    data = JSON.parse(result);
+    console.log(data);
+    let tbusquedas = '<ul>';
+    for (i=0;i<data.items.length;i++){
+        tbusquedas += `<li>${data.items[i].login} <a href="${data.items[i].url}">${data.items[i].login}</a></li>`; 
+    }   
+    tbusquedas += '</ul>';
+    document.getElementById('resultado').innerHTML = tbusquedas;
+})
+  .catch((error) => console.error(error));
+</script>

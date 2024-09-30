@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub</title>
+</head>
+<body>
+  <h1>Github</h1>
+  <p>Github proporciona una API muy sencilla de entender, en la que sólo usa un nivel de profundidad en las consultas.</p>
+  <p>Tiene una versión sin autentificación que nos permite realizar consultas</p>
+  <h3>Mira la consola de JS para ver el resultado de https://api.github.com</h3>
+</body>
+</html>
+<script>
+const requestOptions = {
+  method: "GET",
+  redirect: "follow"
+};
+
+fetch("https://api.github.com", requestOptions)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.error(error));
+</script>

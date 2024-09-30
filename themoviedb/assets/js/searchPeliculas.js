@@ -1,3 +1,5 @@
+const busqueda = document.querySelector('#search')
+
 function searchPelis(){
     search = document.getElementById("search").value;
     //alert("Buscando " + search);
@@ -33,7 +35,13 @@ function searchPelis(){
         
         
     })
-        .catch(err => console.error(err));
+        .catch(err => 
+          {
+            console.error(err)
+            document.getElementById("resultado").innerHTML = error
+        
+        }
+        );
 
 
 
@@ -59,12 +67,18 @@ function editPeli(peli){
     
     
     })
-    .catch(err => console.error(err));
+    .catch(err => {
+        console.error(err)
+        document.getElementById("resultado").innerHTML = error
+    
+    });
 
     fetch(`https://api.themoviedb.org/3/movie/${peli}/credits?language=${TMDB_LANG}`, options)
     .then(response => response.json())
     .then(response => {
-        console.log(response)   
+        console.log(response)  
+        //document.getElementById("resultado").innerHTML = response;
+
     })
 
     /* fetch a creditos */
@@ -72,5 +86,10 @@ function editPeli(peli){
 
 
 }
+
+// Añadir los eventos
+busqueda.addEventListener('blur', searchPelis); // Cuando pierde el foco
+busqueda.addEventListener('click', searchPelis); // Cuando hace clic
+busqueda.addEventListener('keypress', searchPelis); // Cuando se presiona una tecla
 
 

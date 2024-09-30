@@ -1,6 +1,13 @@
 const busqueda = document.querySelector('#search')
 let clase;
-busqueda.addEventListener('blur',(e)=>{
+function manejarEvento(e) {
+     // Verificar si el evento es de la tecla "Enter"
+     if (e.type === 'keypress' && e.key !== 'Enter') {
+        return; // Solo continuar si se presiona "Enter"
+    }
+    mensaje = document.getElementById('txt1').innerHTML;
+    console.log(mensaje);
+     document.getElementById('txt1').innerHTML = mensaje +`<p>Mira la consola, evento ${e.type}</p>`;
     fetch(busqueda.value)
     .then(response => {
         if (response.ok)
@@ -23,4 +30,9 @@ busqueda.addEventListener('blur',(e)=>{
         console.error("ERROR: ", err.message)
     });
 
-    })
+}
+
+// Añadir los eventos
+busqueda.addEventListener('blur', manejarEvento); // Cuando pierde el foco
+busqueda.addEventListener('click', manejarEvento); // Cuando hace clic
+busqueda.addEventListener('keypress', manejarEvento); // Cuando se presiona una tecla
